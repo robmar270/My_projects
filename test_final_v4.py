@@ -15,14 +15,14 @@ from jinja2 import Template
 import requests
 
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
-SERVICE_ACCOUNT_FILE = "keys.json"
+SERVICE_ACCOUNT_FILE = ""
 
 creds = service_account.Credentials.from_service_account_file(
     SERVICE_ACCOUNT_FILE, scopes=SCOPES
 )
 
 # Spreadsheet ID
-SPREADSHEET_ID = "1LgsSEzw0KfmUqvQNqTLRKGaEq2swM9ZjCMzGRQxxFiY"
+SPREADSHEET_ID = ""
 
 # Build the Google Sheets API
 service = build("sheets", "v4", credentials=creds)
@@ -67,10 +67,10 @@ print(merged_data_dict)
 ### GET LOGO FROM GITHUB AND INSERT IT INTO THE HTML
 
 # Replace 'YOUR_TOKEN' with your actual Personal Access Token
-github_token = "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"
+github_token = ""
 
 # GitHub API URL for raw content
-github_raw_url = "https://raw.githubusercontent.com/robmar270/Vintly/df15b612bbdef6397318c2d867b98244f5763cd9/Vintly_logo_edit.png"
+github_raw_url = ""
 
 # Fetch the image from GitHub with the Personal Access Token in the headers
 response = requests.get(github_raw_url, headers={"Authorization": f"token {github_token}"})
@@ -228,7 +228,7 @@ html_body_template = """
                     <div class="introduction">
                         <h1>{{ metric_entries[0].company_name }}</h1>
                         <h2>Monthly Performance</h2>
-                        <h3>Let's see what you have achieved with Vintly</h3>
+                        <h3>Let's see what you have achieved with Us</h3>
                     </div>
                 {% endif %}
 
@@ -303,9 +303,8 @@ rendered_template = template.render(merged_data_dict=merged_data_dict)
 grouped_df = merged_df.groupby("metric_id")
 
 # Define email sender
-email_sender = "robin.martin@vintly.com"
-email_password = "jdvmktdtzuxmbzpe"
-# email_password = os.environ.get("EMAIL_PASSWORD")
+email_sender = ""
+email_password = ""
 
 # ... (previous code)
 
